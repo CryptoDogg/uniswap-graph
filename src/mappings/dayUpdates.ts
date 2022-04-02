@@ -37,7 +37,7 @@ export function updatePairDayData(event: ethereum.Event): PairDayData {
     .concat('-')
     .concat(BigInt.fromI32(dayID).toString())
   let pair = Pair.load(event.address.toHexString())!
-  let pairDayData = PairDayData.load(dayPairID)!
+  let pairDayData = PairDayData.load(dayPairID)
   if (pairDayData === null) {
     pairDayData = new PairDayData(dayPairID)
     pairDayData.date = dayStartTimestamp
@@ -69,7 +69,7 @@ export function updatePairHourData(event: ethereum.Event): PairHourData {
     .concat('-')
     .concat(BigInt.fromI32(hourIndex).toString())
   let pair = Pair.load(event.address.toHexString())!
-  let pairHourData = PairHourData.load(hourPairID)!
+  let pairHourData = PairHourData.load(hourPairID)
   if (pairHourData === null) {
     pairHourData = new PairHourData(hourPairID)
     pairHourData.hourStartUnix = hourStartUnix
@@ -100,7 +100,7 @@ export function updateTokenDayData(token: Token, event: ethereum.Event): TokenDa
     .concat('-')
     .concat(BigInt.fromI32(dayID).toString())
 
-  let tokenDayData = TokenDayData.load(tokenDayID)!
+  let tokenDayData = TokenDayData.load(tokenDayID)
   if (tokenDayData === null) {
     tokenDayData = new TokenDayData(tokenDayID)
     tokenDayData.date = dayStartTimestamp
